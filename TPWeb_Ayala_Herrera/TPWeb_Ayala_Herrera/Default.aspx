@@ -16,6 +16,23 @@
             <h1>TPWeb...En proceso</h1>
             <button type="button" class="btn btn-primary">Primary</button>
         </div>
+        <hr />
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <% foreach (Dominio.Articulo item in ListaArticulo)
+                {%>
+                    <div class="card" style="width: 18rem;">
+                        <img src="<%:item.ImagenUrl %>" class="card-img-top" alt="ImgArt" width="200" height="250"/>
+                        <div class="card-body">
+                            <h5 class="card-title"><%: item.Nombre %></h5>
+                            <h6 class="card-subtitle"><%: item.MarcaArticulo.Descripcion %> </h6>
+                            <p class="card-text"><%: item.Descripcion %>.</p>
+                            <p class="card-text"><%: item.Precio %></p>
+                            <a href="#" class="btn btn-primary">Comprar</a>
+                        </div>
+                    </div>
+                <%} %>
+        </div>
     </form>
 </body>
 </html>
