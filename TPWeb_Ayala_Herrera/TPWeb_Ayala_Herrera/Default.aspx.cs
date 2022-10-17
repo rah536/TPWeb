@@ -19,5 +19,28 @@ namespace TPWeb_Ayala_Herrera
             //ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             //articuloNegocio.listar();
         }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+
+            if (txtFiltro.Text != "")
+            {
+                listaFiltrada = ListaArticulo.FindAll(x => x.Nombre.ToUpper().Contains(txtFiltro.Text.ToUpper()) || x.MarcaArticulo.Descripcion.ToUpper().Contains(txtFiltro.Text.ToUpper()) || x.Descripcion.ToUpper().Contains(txtFiltro.Text.ToUpper()));
+                ListaArticulo = listaFiltrada;
+            }
+
+            if (ListaArticulo.Count == 0)
+            {
+                txtFiltro.Text = "No se han encontrado articulos";
+            }
+        }
+
+        protected void ibtnBorrarFiltro_Click(object sender, ImageClickEventArgs e)
+        {
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            ListaArticulo = articuloNegocio.listar();
+            txtFiltro.Text = "";
+        }
     }
 }
