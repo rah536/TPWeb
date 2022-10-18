@@ -10,6 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+Welcome <%Response.Write(Session["ID"]); %>
         </div>
     </form>
 </body>
