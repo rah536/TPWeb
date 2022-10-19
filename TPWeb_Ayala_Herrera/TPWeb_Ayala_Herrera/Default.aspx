@@ -64,9 +64,10 @@
                                     <h6 class="card-subtitle"><%: item.MarcaArticulo.Descripcion %> </h6>
                                     <p class="card-text"><%: item.Descripcion %>.</p>
                                     <p class="card-text"><%: item.Precio %></p>
+                                     
                                   
                                     <% Response.Write(item.Id); %>   
-                                     <a  class="btn btn-primary" ><%Session["ID"] = ListaArticulo[0].Descripcion ;%>Comprar</a>
+                                    <asp:Button ID="btnMenos" runat="server" Text="-" OnClick="btnMenos_Click" /> <asp:Label ID="lblCantidad" runat="server" > C </asp:Label> <asp:Button ID="btnMas" runat="server" Text="+" />
                                  
                                   <% i++;%>
                                     
