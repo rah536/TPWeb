@@ -52,8 +52,11 @@ namespace TPWeb_Ayala_Herrera
             try
             {
 
-                if (lblCantidad != null && int.(lblCantidad) > 0) { 
-                    lblCantidad.Text = lblC
+                if (lblCantidad != null) {
+                   int a = int.Parse(lblCantidad.Text);
+                    a = a - 1;
+                    lblCantidad.Text = a.ToString() ;
+                   
                         }
             }
             catch (Exception)
