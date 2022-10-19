@@ -52,7 +52,9 @@
                     <% 
                         int tamaño = ListaArticulo.Count();
                         Console.WriteLine(tamaño);
-                         Response.Write(tamaño); 
+                        Response.Write(tamaño);
+                    
+
                         foreach (Dominio.Articulo item in ListaArticulo)
                         {int i=0; %>
                             <div class="card" style="width: 18rem;">
@@ -62,12 +64,13 @@
                                     <h6 class="card-subtitle"><%: item.MarcaArticulo.Descripcion %> </h6>
                                     <p class="card-text"><%: item.Descripcion %>.</p>
                                     <p class="card-text"><%: item.Precio %></p>
-                                    <%int num = item.Id+1; %>
-                                     <a  class="btn btn-primary" ><%Session["ID"] = ListaArticulo[num].Descripcion ;%>Comprar</a>
+                                  
+                                    <% Response.Write(item.Id); %>   
+                                     <a  class="btn btn-primary" ><%Session["ID"] = ListaArticulo[0].Descripcion ;%>Comprar</a>
                                  
                                   <% i++;%>
-                                      <% Response.Write(i); %>   
-                                    <% Response.Write(item.Nombre); %>   
+                                    
+                                   
                                   
                                   
                                 </div>

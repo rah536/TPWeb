@@ -18,7 +18,7 @@ namespace Negocio
             try
             {
                 //datos.setearConsulta("Select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.ImagenUrl, A.Precio, C.Id, C.Descripcion, c.id, c.descripcion as CatDescripcion, M.Id, M.Descripcion as MarDescripcion from Articulos as A Inner Join CATEGORIAS as C On A.IdCategoria = C.Id Inner Join MARCAS as M On M.Id = C.Id");
-                datos.setearConsulta("Select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.ImagenUrl, A.Precio, A.IdCategoria as CatId, C.Descripcion as CatDescripcion, A.IdMarca as MarId, M.Descripcion as MarDescripcion from Articulos as A Inner Join CATEGORIAS as C On A.IdCategoria = C.Id Inner Join MARCAS as M On M.Id = C.Id");
+                datos.setearConsulta("Select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.ImagenUrl, A.Precio, A.IdCategoria as CatId, C.Descripcion as CatDescripcion, A.IdMarca as MarId, M.Descripcion as MarDescripcion from Articulos as A left Join MARCAS as M On A.IdMarca = M.Id left Join CATEGORIAS as C On A.IdCategoria = C.Id");
                 datos.ejecutarLectura();
 
                 while(datos.Lector.Read())
@@ -37,7 +37,8 @@ namespace Negocio
                     
                     aux.CategoriaArticulo = new Categoria();
                     aux.CategoriaArticulo.Id = (int)datos.Lector["CatId"];
-                    aux.CategoriaArticulo.Descripcion = (string)datos.Lector["CatDescripcion"];
+                    if (datos.Lector["CatDescripcion"] == DBNull.Value) { aux.CategoriaArticulo.Descripcion = "Sin Categoria"; }
+                    else { aux.CategoriaArticulo.Descripcion = (string)datos.Lector["CatDescripcion"]; }
 
                     aux.MarcaArticulo = new Marca();
                     aux.MarcaArticulo.Id = (int)datos.Lector["MarId"];
