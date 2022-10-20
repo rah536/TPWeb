@@ -12,6 +12,8 @@ namespace TPWeb_Ayala_Herrera
     public partial class Default : System.Web.UI.Page
     {
         public List<Articulo> ListaArticulo { get; set; }
+
+        static public List<Articulo> ListaSeleccionada = new List<Articulo>();
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
@@ -54,7 +56,7 @@ namespace TPWeb_Ayala_Herrera
         {
             string id = ((Button)sender).CommandArgument;
 
-            List<Articulo> ListaSeleccionada = new List<Articulo>();
+            //List<Articulo> ListaSeleccionada = new List<Articulo>();
 
             foreach (Dominio.Articulo item in ListaArticulo)
             {
