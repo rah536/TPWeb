@@ -49,21 +49,7 @@ namespace TPWeb_Ayala_Herrera
 
         protected void btnMenos_Click(object sender, EventArgs e)
         {
-            try
-            {
-
-                if (lblCantidad != null) {
-                   int a = int.Parse(lblCantidad.Text);
-                    a = a - 1;
-                    lblCantidad.Text = a.ToString() ;
-                   
-                        }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+          
 
 
         }
