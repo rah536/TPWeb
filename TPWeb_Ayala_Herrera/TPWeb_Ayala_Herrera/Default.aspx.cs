@@ -18,6 +18,13 @@ namespace TPWeb_Ayala_Herrera
             ListaArticulo = articuloNegocio.listar();
             //ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             //articuloNegocio.listar();
+            if (!IsPostBack)
+            {
+                //ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+                //ListaArticulo = articuloNegocio.listar();
+                repArticulo.DataSource = ListaArticulo;
+                repArticulo.DataBind();
+            }
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
@@ -41,6 +48,29 @@ namespace TPWeb_Ayala_Herrera
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             ListaArticulo = articuloNegocio.listar();
             txtFiltro.Text = "";
+        }
+
+        protected void btnComprar_Click(object sender, EventArgs e)
+        {
+            string id = ((Button)sender).CommandArgument;
+
+            List<Articulo> ListaSeleccionada = new List<Articulo>();
+
+            foreach (Dominio.Articulo item in ListaArticulo)
+            {
+                if (item.Id.ToString() == id)
+                {
+                    ListaSeleccionada.Add(item);
+                    Session.Add("ListaCarrito", ListaSeleccionada);
+                }
+
+            }
+            //Session.Add("ListaCarrito", ListaSeleccionada);
+        }
+
+        protected void btnCarrito_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Carrito.aspx", false);
         }
     }
 }

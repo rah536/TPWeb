@@ -33,11 +33,14 @@
                         <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" CssClass="btn-primary" />
                         <asp:ImageButton ID="ibtnBorrarFiltro" ImageUrl="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAdxJREFUSEvFlo1Nw0AMhV8nASYBJilMAkxCmQSYBJgE9NA5enm1L3eIqpaitLnEn3/vvMOZZHcmLv4CvgRwA+ACwFcz/BPA24wTo2DC9gAeO8oD/jJixBZ4BOi2hAFPAPg7lR6Y0FcAvIcwnLze213DzvDzCiH0toJXYCr8MCX3AyF0Y0t4BaanYT3zyrCNiqcnhWfgZwB3jTILVeMepBgPABixRRxML+kthZZemZv0pioYX+N/OkGd/GaVKgertywM7U0q4Dqt99BXa1or1EWdv+JgFhRf9tCoAlqvcI+SV3LUyyqCClYFWW6Zd3ocaSCcbRWp4XOPEp9prpd1Bati5oOKXRyuPZ5B+b06tOitwCyqqogUHoZVUK5rmpZIKlhD0gOrBxr2Xq9/NwtTj1XhSNg0DV5wupamcKa43FMaF73a8zyNpILLnrM8efV6wXk76d6w8LyPtef8UAhAloZqTaO02hsc7BuFb5lJh3Uf6WGzMnjrkDja3CfIU4dE9F0MAL1q7dmg0OywKYe9/xoEqm20O2Vm0wSt5xWjT0Toum2NPvqUU8sphj0aszlAbIEjj/SeeYvJJMtv1APH23K6jA9HwWoAjYhTKYb6kw30E1009uqsx2NaB976AZMmmh/4QY5AAAAAAElFTkSuQmCC" runat="server" OnClick="ibtnBorrarFiltro_Click"/>
                     </div>
-
-
+                <hr />
+                <div>
+                    <asp:Button ID="btnCarrito" runat="server" Text="Ir al Carrito" OnClick="btnCarrito_Click" />
+                </div>
+                <hr />
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                      
-
+                    <%-- 
                     <% foreach (Dominio.Articulo item in ListaArticulo)
                         {%>
                             <div class="card" style="width: 18rem;">
@@ -51,8 +54,24 @@
                                 </div>
                             </div>
                         <%} %>
+                    --%>
+                    <asp:Repeater ID="repArticulo" runat="server">
+                        <ItemTemplate>
+                            <div class="card" style="width: 18rem;">
+                                  <img src="<%#Eval("ImagenUrl") %>" class="card-img-top" alt="ImgArt" width="200" height="250"/>
+                                  <div class="card-body">
+                                        <h5 class="card-title"><%#Eval("Nombre")%></h5>
+                                        <h6 class="card-subtitle"><%#Eval("MarcaArticulo.Descripcion") %> </h6>
+                                        <p class="card-text"><%#Eval("Descripcion") %>.</p>
+                                        <p class="card-text"><%#Eval("Precio") %>.</p>
+                                        <asp:Button ID="btnComprar" CssClass="btn btn-primary" runat="server" Text="Comprar" CommandArgument='<%#Eval("Id")%>' CommandName="IdArticulo" OnClick="btnComprar_Click" />
+                                  </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
             </div>
+            
         </div>
     </form>
 </body>

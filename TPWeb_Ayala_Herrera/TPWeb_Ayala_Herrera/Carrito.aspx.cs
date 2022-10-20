@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Dominio;
+using Negocio;
 
 namespace TPWeb_Ayala_Herrera
 {
@@ -11,7 +13,18 @@ namespace TPWeb_Ayala_Herrera
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Session["ListaCarrito"] != null)
+                {
+                    List<Articulo> ListaSeleccionada = new List<Articulo>();
+                    //Articulo ListaSeleccionada = new Articulo();
+                    ListaSeleccionada = (List<Articulo>)Session["ListaCarrito"];
+                    //ListaSeleccionada = (Articulo)Session["ListaCarrito"];
+                    gvCarrito.DataSource = ListaSeleccionada;
+                    gvCarrito.DataBind();
+                }
+            }
         }
     }
 }
