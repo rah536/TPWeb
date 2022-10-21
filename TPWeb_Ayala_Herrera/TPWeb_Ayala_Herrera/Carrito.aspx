@@ -42,9 +42,9 @@
                                     <h6 class="card-subtitle"><%#Eval("MarcaArticulo.Descripcion") %> </h6>
                                     <p class="card-text"><%#Eval("Descripcion") %>.</p>
                                     <p class="card-text"><%#Eval("Precio") %>.</p>
-                                <%--
-                                    <asp:Button ID="btnComprar" CssClass="btn btn-primary" runat="server" Text="Comprar" CommandArgument='<%#Eval("Id")%>' CommandName="IdArticulo" OnClick="btnComprar_Click" />
-                               --%>
+                               
+                                    <asp:Button ID="btnEliminar"  CssClass="btn btn-primary" runat="server" Text="Eliminar" CommandArgument='<%#Eval("Id")%>' CommandName="IdArticulo" OnClick="btnEliminar_Click" />
+                                    
 
                                     </div>
                             </div>

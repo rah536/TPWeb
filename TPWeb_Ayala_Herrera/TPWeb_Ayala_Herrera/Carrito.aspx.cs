@@ -11,6 +11,10 @@ namespace TPWeb_Ayala_Herrera
 {
     public partial class Carrito : System.Web.UI.Page
     {
+        //public List<Articulo> ListaArticulo { get; set; }
+
+
+        static public List<Articulo> ListaSeleccionada = new List<Articulo>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -41,6 +45,29 @@ namespace TPWeb_Ayala_Herrera
                 }*/
             }
         }
-        
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string id = ((Button)sender).CommandArgument;
+
+            List<Articulo> ListaSeleccionada = new List<Articulo>();
+            ListaSeleccionada = (List<Articulo>)Session["ListaCarrito"];
+
+            foreach (Dominio.Articulo item in ListaSeleccionada)
+
+
+
+
+            {
+                if (item.Id.ToString() == id)
+                {
+                    ListaSeleccionada.Remove(item);
+                    Session.Add("ListaCarrito", ListaSeleccionada);
+                    Response.Redirect(Request.RawUrl);
+                }
+
+            }
+            //Session.Add("ListaCarrito", ListaSeleccionada);
+        }
     }
 }
