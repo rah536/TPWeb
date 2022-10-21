@@ -23,8 +23,24 @@ namespace TPWeb_Ayala_Herrera
                     //ListaSeleccionada = (Articulo)Session["ListaCarrito"];
                     gvCarrito.DataSource = ListaSeleccionada;
                     gvCarrito.DataBind();
+
+                    repArticulo.DataSource = ListaSeleccionada;
+                    repArticulo.DataBind();
                 }
+                /*
+                ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+                ListaArticulo = articuloNegocio.listar();
+                //ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+                //articuloNegocio.listar();
+                if (!IsPostBack)
+                {
+                    //ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+                    //ListaArticulo = articuloNegocio.listar();
+                    repArticulo.DataSource = ListaSleccionada;
+                    repArticulo.DataBind();
+                }*/
             }
         }
+        
     }
 }
