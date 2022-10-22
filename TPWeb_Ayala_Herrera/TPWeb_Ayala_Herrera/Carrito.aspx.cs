@@ -26,6 +26,10 @@ namespace TPWeb_Ayala_Herrera
 
                     repArticulo.DataSource = ListaSeleccionada;
                     repArticulo.DataBind();
+                    if (ListaSeleccionada.Count() == 0)
+                    {
+                        lblLista.Visible = true;
+                    }
                 }
                 /*
                 ArticuloNegocio articuloNegocio = new ArticuloNegocio();
@@ -40,6 +44,7 @@ namespace TPWeb_Ayala_Herrera
                     repArticulo.DataBind();
                 }*/
             }
+           
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
@@ -51,9 +56,6 @@ namespace TPWeb_Ayala_Herrera
 
             foreach (Dominio.Articulo item in ListaSeleccionada)
 
-
-
-
             {
                 if (item.Id.ToString() == id)
                 {
@@ -64,6 +66,11 @@ namespace TPWeb_Ayala_Herrera
 
             }
             //Session.Add("ListaCarrito", ListaSeleccionada);
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx", false);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace TPWeb_Ayala_Herrera
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            //lblFiltro.Visible = false;
+            lblFiltro.Visible = false;
             List<Articulo> listaFiltrada;
 
             if (txtFiltro.Text != "")
@@ -44,7 +44,7 @@ namespace TPWeb_Ayala_Herrera
             if (ListaArticulo.Count == 0)
             {
                 //txtFiltro.Text = "No se han encontrado articulos";
-                //lblFiltro.Visible = true;
+                lblFiltro.Visible = true;
             }
             repArticulo.DataSource = ListaArticulo;
             repArticulo.DataBind();
@@ -57,7 +57,7 @@ namespace TPWeb_Ayala_Herrera
             txtFiltro.Text = "";
             repArticulo.DataSource = ListaArticulo;
             repArticulo.DataBind();
-            //lblFiltro.Visible = false;
+            lblFiltro.Visible = false;
         }
 
         protected void btnComprar_Click(object sender, EventArgs e)

@@ -12,27 +12,23 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <h1>CARRITO</h1>
-            <asp:GridView ID="gvCarrito" runat="server" CssClass="table"></asp:GridView>
+        <div class ="card">
+            <div class="card-header text-bg-success text-center">
+                <div class="btn-group"><h1>Carrito de compras</h1></div>
+            </div>
+            <hr />
 
-               <div class="row row-cols-1 row-cols-md-3 g-4">
-
-                    <%-- 
-                    <% foreach (Dominio.Articulo item in ListaArticulo)
-                        {%>
-                            <div class="card" style="width: 18rem;">
-                                <img src="<%:item.ImagenUrl %>" class="card-img-top" alt="ImgArt" width="200" height="250"/>
-                                <div class="card-body">
-                                    <h5 class="card-title"><%: item.Nombre %></h5>
-                                    <h6 class="card-subtitle"><%: item.MarcaArticulo.Descripcion %> </h6>
-                                    <p class="card-text"><%: item.Descripcion %>.</p>
-                                    <p class="card-text"><%: item.Precio %></p>
-                                    <a href="#" class="btn btn-primary">Comprar</a>
-                                </div>
-                            </div>
-                        <%} %>
-                    --%>
+            <div class="card-body text-center">
+                <div class="card-title">
+                    <h1>Artículos Seleccionados</h1>
+                </div>
+                <hr />
+                    <asp:Label ID="lblLista" runat="server" Text="No se han seleccionado artículos" Visible="false"></asp:Label>
+                <hr />
+                   <asp:Button ID="btnVolver" runat="server" Text="Volver al Listado" CssClass=" btn btn-lg text-bg-warning" OnClick="btnVolver_Click" />
+                <hr />
+                <hr />
+                <div class="row row-cols-1 row-cols-md-3 g-4 p-md-5">
                     <asp:Repeater ID="repArticulo" runat="server">
                         <ItemTemplate>
                             <div class="card" style="width: 18rem;">
@@ -42,15 +38,13 @@
                                     <h6 class="card-subtitle"><%#Eval("MarcaArticulo.Descripcion") %> </h6>
                                     <p class="card-text"><%#Eval("Descripcion") %>.</p>
                                     <p class="card-text"><%#Eval("Precio") %>.</p>
-                               
-                                    <asp:Button ID="btnEliminar"  CssClass="btn btn-primary" runat="server" Text="Eliminar" CommandArgument='<%#Eval("Id")%>' CommandName="IdArticulo" OnClick="btnEliminar_Click" />
-                                    
-
-                                    </div>
+                                    <asp:Button ID="btnEliminar"  CssClass="btn btn-danger" runat="server" Text="Eliminar" CommandArgument='<%#Eval("Id")%>' CommandName="IdArticulo" OnClick="btnEliminar_Click" />
+                                </div>
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
+            </div>
         </div>
     </form>
 </body>
