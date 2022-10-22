@@ -11,6 +11,7 @@ namespace TPWeb_Ayala_Herrera
 {
     public partial class Default : System.Web.UI.Page
     {
+        static public int i = 0;
         public List<Articulo> ListaArticulo { get; set; }
 
         static public List<Articulo> ListaSeleccionada = new List<Articulo>();
@@ -31,6 +32,7 @@ namespace TPWeb_Ayala_Herrera
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            //lblFiltro.Visible = false;
             List<Articulo> listaFiltrada;
 
             if (txtFiltro.Text != "")
@@ -41,8 +43,11 @@ namespace TPWeb_Ayala_Herrera
 
             if (ListaArticulo.Count == 0)
             {
-                txtFiltro.Text = "No se han encontrado articulos";
+                //txtFiltro.Text = "No se han encontrado articulos";
+                //lblFiltro.Visible = true;
             }
+            repArticulo.DataSource = ListaArticulo;
+            repArticulo.DataBind();
         }
 
         protected void ibtnBorrarFiltro_Click(object sender, ImageClickEventArgs e)
@@ -50,6 +55,9 @@ namespace TPWeb_Ayala_Herrera
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             ListaArticulo = articuloNegocio.listar();
             txtFiltro.Text = "";
+            repArticulo.DataSource = ListaArticulo;
+            repArticulo.DataBind();
+            //lblFiltro.Visible = false;
         }
 
         protected void btnComprar_Click(object sender, EventArgs e)
@@ -68,6 +76,7 @@ namespace TPWeb_Ayala_Herrera
 
             }
             //Session.Add("ListaCarrito", ListaSeleccionada);
+            i = ListaSeleccionada.Count();
         }
 
         protected void btnCarrito_Click(object sender, EventArgs e)

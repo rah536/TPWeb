@@ -22,11 +22,7 @@ namespace TPWeb_Ayala_Herrera
                 if (Session["ListaCarrito"] != null)
                 {
                     List<Articulo> ListaSeleccionada = new List<Articulo>();
-                    //Articulo ListaSeleccionada = new Articulo();
                     ListaSeleccionada = (List<Articulo>)Session["ListaCarrito"];
-                    //ListaSeleccionada = (Articulo)Session["ListaCarrito"];
-                    gvCarrito.DataSource = ListaSeleccionada;
-                    gvCarrito.DataBind();
 
                     repArticulo.DataSource = ListaSeleccionada;
                     repArticulo.DataBind();
