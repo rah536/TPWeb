@@ -17,13 +17,26 @@ namespace TPWeb_Ayala_Herrera
         static public List<Articulo> ListaSeleccionada = new List<Articulo>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            float totalAcumulador = 0;
+            Articulo aux = new Articulo();
+
             if (!IsPostBack)
             {
+
                 if (Session["ListaCarrito"] != null)
                 {
+
                     List<Articulo> ListaSeleccionada = new List<Articulo>();
                     ListaSeleccionada = (List<Articulo>)Session["ListaCarrito"];
 
+                    foreach(Articulo Articulo in ListaSeleccionada)
+                    {
+                        totalAcumulador += Articulo.Precio;
+
+                    }
+                    lbTotal.Text = "Total $" + totalAcumulador;
+
+                    
                     repArticulo.DataSource = ListaSeleccionada;
                     repArticulo.DataBind();
                     if (ListaSeleccionada.Count() == 0)
@@ -57,6 +70,7 @@ namespace TPWeb_Ayala_Herrera
             foreach (Dominio.Articulo item in ListaSeleccionada)
 
             {
+
                 if (item.Id.ToString() == id)
                 {
                     ListaSeleccionada.Remove(item);

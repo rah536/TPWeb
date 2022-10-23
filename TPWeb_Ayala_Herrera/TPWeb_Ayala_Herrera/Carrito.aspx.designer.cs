@@ -42,6 +42,15 @@ namespace TPWeb_Ayala_Herrera
         protected global::System.Web.UI.WebControls.Button btnVolver;
 
         /// <summary>
+        /// Control lbTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbTotal;
+
+        /// <summary>
         /// Control repArticulo.
         /// </summary>
         /// <remarks>

@@ -27,6 +27,9 @@
                 <hr />
                    <asp:Button ID="btnVolver" runat="server" Text="Volver al Listado" CssClass=" btn btn-lg text-bg-warning" OnClick="btnVolver_Click" />
                 <hr />
+                <h1>
+                <asp:Label ID="lbTotal" runat="server" Text="Label"></asp:Label>
+                </h1>
                 <hr />
                 <div class="row row-cols-1 row-cols-md-3 g-4 p-md-5">
                     <asp:Repeater ID="repArticulo" runat="server">
@@ -39,6 +42,8 @@
                                     <p class="card-text"><%#Eval("Descripcion") %>.</p>
                                     <p class="card-text"><%#Eval("Precio") %>.</p>
                                     <asp:Button ID="btnEliminar"  CssClass="btn btn-danger" runat="server" Text="Eliminar" CommandArgument='<%#Eval("Id")%>' CommandName="IdArticulo" OnClick="btnEliminar_Click" />
+                              
+                                    
                                 </div>
                             </div>
                         </ItemTemplate>

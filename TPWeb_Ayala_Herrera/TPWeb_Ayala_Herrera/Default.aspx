@@ -13,6 +13,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="card">
+            
             <div class="card-header text-bg-success text-center">
                 <div class="btn-group"><h1>Carrito de compras</h1></div>
                 <div class="btn-group"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAYAAAA6GuKaAAAAAXNSR0IArs4c6QAAAhxJREFUaEPtmL0vBEEYh5+r1Dqdj0StI0JBlBJaoUDUEqWSUilRSqiIQiNR+ij8AQqdgkZ04j8gv2T3sje7ezO7NzPr5Ka55HZ35tln39+7Hy36cLT6kJkBdKyr9m9MbxnG3oHHWBZd1jFNLwAPBQcK/Bw4dJk09D6u0OIQ+PZfsF4FOgUfD23SNr8JPQaoRLJj0/hvsWnbLt1DwTzLnIVCKfDGhgu07L9lCFXbgtZvI8MFWmAynW2FB012ElfoItuxLOdarSu0ANW/zZDGAu8IfxXoshtPDHC12XaGqkCrRFTbsW3nulUVaBk1218My7oLq67boyq0GcgY0B2loQWrQscOpAzLdMeoAx0zkLnSqGs6pu1CqXVMxwpkYWn0YjpGIHMBTAu7rumi5xGfnaTrk2Qv0CFtFwbQh+mQgSwtjV5qOj3pEO2vNIC+TId4HulaGj5Mh2h/1pxZd3BoCT4DaS0NX6ZT23pr1wnUHc4fg3yYrgtZ+zif0EPADPAJvFYgmge+gRfXY3xBryQP6sPJwsfAngViGrgEJpL9LoANF3Bf0Hp/GzUWXAVuukA8AXPG9l3gxAbuA7qse9i+jfwUwEXtHl9AWhopy3py+cvEPQNTxsZ94CiGaa2xA5xmFrsC1iyLLwPXgAKscQ8s2YB99mnNNQnMAh/AncviwEgCqu5x63hMrRdb17mD7ecjiMHgyiYeQMdS3pemfwHdSlQugFyXrwAAAABJRU5ErkJggg==" />
