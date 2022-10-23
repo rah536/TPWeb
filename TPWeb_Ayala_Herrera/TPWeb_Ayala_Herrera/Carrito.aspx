@@ -28,7 +28,7 @@
                    <asp:Button ID="btnVolver" runat="server" Text="Volver al Listado" CssClass=" btn btn-lg text-bg-warning" OnClick="btnVolver_Click" />
                 <hr />
                 <h1>
-                <asp:Label ID="lbTotal" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="lbTotal" runat="server" Text=""></asp:Label>
                 </h1>
                 <hr />
                 <div class="row row-cols-1 row-cols-md-3 g-4 p-md-5">
